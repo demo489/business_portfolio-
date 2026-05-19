@@ -2,10 +2,10 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const STATS = [
-  { end: 150, suffix: "+", label: "Projects Completed", icon: <RocketIcon /> },
-  { end: 50, suffix: "+", label: "Happy Clients", icon: <ClientIcon /> },
-  { end: 5, suffix: "+", label: "Years Experience", icon: <CalendarIcon /> },
-  { end: 98, suffix: "%", label: "Client Satisfaction", icon: <StarIcon /> },
+  { end: 10, suffix: "+", label: "Projects Delivered", icon: <RocketIcon /> },
+  { end: 8, suffix: "+", label: "Happy Clients", icon: <ClientIcon /> },
+  { end: 6, suffix: "", label: "Services Offered", icon: <ServicesIcon /> },
+  { end: 100, suffix: "%", label: "Client Satisfaction", icon: <StarIcon /> },
 ];
 
 function CountUp({ target, suffix, active }) {
@@ -74,7 +74,7 @@ function ClientIcon() {
   );
 }
 
-function CalendarIcon() {
+function ServicesIcon() {
   return (
     <svg
       width="24"
@@ -86,10 +86,11 @@ function CalendarIcon() {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-      <line x1="16" y1="2" x2="16" y2="6" />
-      <line x1="8" y1="2" x2="8" y2="6" />
-      <line x1="3" y1="10" x2="21" y2="10" />
+      <rect x="2" y="3" width="6" height="6" rx="1" />
+      <rect x="16" y="3" width="6" height="6" rx="1" />
+      <rect x="2" y="15" width="6" height="6" rx="1" />
+      <rect x="16" y="15" width="6" height="6" rx="1" />
+      <path d="M9 6h6M9 18h6M12 9v6" />
     </svg>
   );
 }

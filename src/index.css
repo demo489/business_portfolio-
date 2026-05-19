@@ -272,16 +272,19 @@ section {
   background: none;
   border: none;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  padding: 0;
+  transition: opacity 0.2s ease;
 }
 
 .navbar-logo:hover {
-  transform: scale(1.02);
+  opacity: 0.8;
 }
 
 .navbar-logo-img {
-  height: 48px;
+  height: 36px;
   width: auto;
+  display: block;
 }
 
 .navbar-nav {
@@ -455,7 +458,7 @@ section {
   }
 
   .navbar-logo-img {
-    height: 40px;
+    height: 30px;
   }
 }
 
@@ -3665,8 +3668,9 @@ section {
 }
 
 .footer-logo img {
-  height: 48px;
+  height: 34px;
   width: auto;
+  display: block;
 }
 
 .footer-tagline {
