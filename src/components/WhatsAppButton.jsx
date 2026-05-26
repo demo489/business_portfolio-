@@ -6,7 +6,7 @@ export default function WhatsAppButton() {
       initial={{ opacity: 0, scale: 0.5, x: 20 }}
       animate={{ opacity: 1, scale: 1, x: 0 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-      href="https://wa.me/1234567890"
+      href="https://wa.me/918290056936"
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-button"
