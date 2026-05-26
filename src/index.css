@@ -384,9 +384,17 @@ section {
 }
 
 .navbar-mobile {
-  background: #FFFFFF;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid #E5E7EB;
-  overflow: hidden;
+  overflow-y: auto;
+  z-index: 999;
 }
 
 .navbar-mobile-content {
@@ -459,6 +467,10 @@ section {
 
   .navbar-logo-img {
     height: 30px;
+  }
+
+  .navbar-mobile {
+    top: 70px;
   }
 }
 
@@ -3573,7 +3585,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 900;
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3),
     0 0 0 0 rgba(37, 211, 102, 0);
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
