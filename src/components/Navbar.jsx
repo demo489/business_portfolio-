@@ -22,12 +22,30 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
+  /* Lock body scroll when mobile menu is open */
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
   const go = (id) => {
     setActive(id);
     setOpen(false);
-    document
-      .getElementById(id.toLowerCase())
-      ?.scrollIntoView({ behavior: "smooth" });
+    // Restore scroll immediately so scrollTo works
+    document.body.style.overflow = "";
+    // Wait a tick for the menu to close, then scroll
+    setTimeout(() => {
+      const el = document.getElementById(id.toLowerCase());
+      if (el) {
+        const navbarHeight = 90;
+        const top = el.getBoundingClientRect().top + window.scrollY - navbarHeight;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    }, 50);
   };
 
   return (
@@ -94,9 +112,10 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
             className="navbar-mobile"
           >
             <div className="navbar-mobile-content">
